@@ -61,8 +61,7 @@ visit_percentages, path = random_walk_from_matrix(matrix, num_visits, start_node
 # Display visit percentages and path
 st.subheader("Visit Percentages")
 st.write(visit_percentages)
-st.subheader("Path")
-st.write(path)
+
 
 # Create graph
 G = nx.DiGraph(nx.convert_matrix.from_numpy_array(np.array(matrix)))
@@ -70,11 +69,19 @@ pos = nx.circular_layout(G)
 fig, ax = plt.subplots()
 nx.draw_networkx_nodes(G, pos, node_size=700, ax=ax)
 nx.draw_networkx_labels(G, pos, ax=ax)
-nx.draw_networkx_edges(G, pos, arrowstyle='-|>', arrowsize=20, ax=ax)
+
+# Draw the edges using a new connectionstyle
+edges = G.edges()
+nx.draw_networkx_edges(G, pos, edgelist=edges, arrowstyle='-|>', arrowsize=20, 
+                       connectionstyle='arc3, rad = 0.1', ax=ax)
 
 # Highlight path
 if path:
     edges = [(path[i-1], path[i]) for i in range(1, len(path))]
-    nx.draw_networkx_edges(G, pos, edgelist=edges, edge_color='r', width=2, arrowstyle='-|>', arrowsize=20, ax=ax)
+    nx.draw_networkx_edges(G, pos, edgelist=edges, edge_color='r', width=2, 
+                           arrowstyle='-|>', arrowsize=20, connectionstyle='arc3, rad = 0.1', ax=ax)
 
 st.pyplot(fig)
+
+st.subheader("Path")
+st.write(path)
