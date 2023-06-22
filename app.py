@@ -8,6 +8,7 @@ def random_walk_from_matrix(matrix, num_visits, start_node):
     # Ensure that the matrix is a 5x5 numpy array.
     if isinstance(matrix, list):
         matrix = np.array(matrix)
+    print("matrix details :", matrix, matrix.shape)
     assert matrix.shape == (5, 5), "Input matrix must be 5x5."
     
     # take a transpose of the matrix
