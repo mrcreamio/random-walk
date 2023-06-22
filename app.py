@@ -49,11 +49,11 @@ num_visits = st.number_input("Number of nodes to visit:", min_value=1, max_value
 start_node = st.number_input("Starting node:", min_value=0, max_value=4, value=0, step=1)
 
 # Define default matrix
-default_matrix = [[0, 1, 0, 0, 1],
-                  [0, 0, 1, 0, 0],
-                  [1, 0, 0, 1, 0],
-                  [0, 1, 0, 0, 1],
-                  [1, 0, 1, 0, 0]]
+default_matrix = [[0, 1, 0, 1, 1],
+                  [1, 0, 1, 1, 0],
+                  [1, 1, 0, 1, 1],
+                  [1, 0, 0, 0, 1],
+                  [0, 1, 0, 1, 0]]
 
 # Take matrix input from user
 matrix = st.text_area("Enter adjacency matrix as rows of numbers, separated by spaces. (5x5 matrix)", 
