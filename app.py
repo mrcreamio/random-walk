@@ -45,7 +45,7 @@ def random_walk_from_matrix(matrix, num_visits, start_node):
 st.title("Random Walk on a Directed Graph")
 
 # Take user inputs
-num_visits = st.number_input("Number of nodes to visit:", min_value=1, max_value=100000000, value=10, step=1)
+num_visits = st.number_input("Number of nodes to visit:", min_value=1, max_value=10000000, value=10, step=1)
 start_node = st.number_input("Starting node:", min_value=0, max_value=4, value=0, step=1)
 
 # Define default matrix
