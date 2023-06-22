@@ -4,6 +4,12 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import random
 
+if st.button("Click me to clean cache", ):
+    # Clears all st.cache_resource caches:
+    st.cache_resource.clear()
+    st.cache_data.clear()
+    
+@st.cache_data
 def random_walk_from_matrix(matrix, num_visits, start_node):
     # Ensure that the matrix is a 5x5 numpy array.
     if isinstance(matrix, list):
